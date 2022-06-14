@@ -67,6 +67,7 @@ endif()
 set(CAMCONSTSFILE "camconst.json")
 
 set(RTENGINESOURCEFILES
+    alpha.cc
     ahd_demosaic_RT.cc
     amaze_demosaic_RT.cc
     badpixels.cc
@@ -142,7 +143,6 @@ set(RTENGINESOURCEFILES
     jpeg_ijg/jpeg_memsrc.cc
     labimage.cc
     lcp.cc
-    lj92.c
     lmmse_demosaic.cc
     loadinitial.cc
     munselllch.cc
@@ -167,6 +167,7 @@ set(RTENGINESOURCEFILES
     rtthumbnail.cc
     shmap.cc
     simpleprocess.cc
+    spot.cc
     stdimagesource.cc
     tmo_fattal02.cc
     utils.cc

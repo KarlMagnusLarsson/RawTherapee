@@ -279,6 +279,7 @@ FramesData::FramesData(const Glib::ustring &fname) :
         if (find_tag(Exiv2::lensName)) {
             lens = validateUft8(pos->print(&exif)); // validateUft8 (#5923) still needed?
         }
+        
         if (lens.empty()) {
             lens = "Unknown";
         }

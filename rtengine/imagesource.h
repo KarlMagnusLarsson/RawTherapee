@@ -170,8 +170,9 @@ public:
     {
         outCurve = { 0.0 };
     }
+  
+    double getDirPyrDenoiseExpComp () const
 
-    double getDirPyrDenoiseExpComp ( )
     {
         return dirpyrdenoiseExpComp;
     }

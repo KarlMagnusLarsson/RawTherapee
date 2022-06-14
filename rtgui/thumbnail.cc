@@ -255,7 +255,7 @@ void Thumbnail::_generateThumbnailImage ()
     }
 }
 
-bool Thumbnail::isSupported ()
+bool Thumbnail::isSupported () const
 {
     return cfs.supported;
 }
@@ -698,7 +698,7 @@ void Thumbnail::getFinalSize (const rtengine::procparams::ProcParams& pparams, i
     }
 }
 
-void Thumbnail::getOriginalSize (int& w, int& h)
+void Thumbnail::getOriginalSize (int& w, int& h) const
 {
     w = tw;
     h = th;
@@ -827,7 +827,7 @@ void Thumbnail::getAutoWB (double& temp, double& green, double equal, double tem
 }
 
 
-ThFileType Thumbnail::getType ()
+ThFileType Thumbnail::getType () const
 {
 
     return (ThFileType) cfs.format;
@@ -950,20 +950,6 @@ void Thumbnail::_loadThumbnail(bool firstTrial)
     if (!initial_) {
         tw = tpp->getImageWidth (getProcParamsU(), th, imgRatio);    // this might return 0 if image was just building
     }
-}
-
-/*
- * Read all thumbnail's data from the cache; build and save them if doesn't exist - MUTEX PROTECTED
- * This includes:
- *  - image's bitmap (*.rtti)
- *  - auto exposure's histogram (full thumbnail only)
- *  - embedded profile (full thumbnail only)
- *  - LiveThumbData section of the data file
- */
-void Thumbnail::loadThumbnail (bool firstTrial)
-{
-    MyMutex::MyLock lock(mutex);
-    _loadThumbnail(firstTrial);
 }
 
 /*
@@ -1221,7 +1207,7 @@ void Thumbnail::applyAutoExp (rtengine::procparams::ProcParams& pparams)
     }
 }
 
-const CacheImageData* Thumbnail::getCacheImageData()
+const CacheImageData* Thumbnail::getCacheImageData() const
 {
     return &cfs;
 }

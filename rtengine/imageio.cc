@@ -149,7 +149,7 @@ void png_flush(png_struct_def *png_ptr);
 
 int ImageIO::getPNGSampleFormat (const Glib::ustring &fname, IIOSampleFormat &sFormat, IIOSampleArrangement &sArrangement)
 {
-    FILE *file = g_fopen (fname.c_str (), "rb");
+    FILE *file = ::g_fopen (fname.c_str (), "rb");
 
     if (!file) {
         return IMIO_CANNOTREADFILE;
@@ -222,7 +222,7 @@ int ImageIO::getPNGSampleFormat (const Glib::ustring &fname, IIOSampleFormat &sF
 int ImageIO::loadPNG  (const Glib::ustring &fname)
 {
 
-    FILE *file = g_fopen (fname.c_str (), "rb");
+    FILE *file = ::g_fopen (fname.c_str (), "rb");
 
     if (!file) {
         return IMIO_CANNOTREADFILE;
@@ -490,7 +490,7 @@ int ImageIO::loadJPEGFromMemory (const char* buffer, int bufsize)
 
 int ImageIO::loadJPEG (const Glib::ustring &fname)
 {
-    FILE *file = g_fopen(fname.c_str (), "rb");
+    FILE *file = ::g_fopen(fname.c_str (), "rb");
 
     if (!file) {
         return IMIO_CANNOTREADFILE;
