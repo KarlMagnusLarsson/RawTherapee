@@ -41,9 +41,10 @@ extern const Settings *settings;
 
 Exiv2::Image::AutoPtr open_exiv2(const Glib::ustring& fname)
 {
-/// Patch to enable BMFF
-Exiv2::enableBMFF(true);
-/// End of patch
+#ifdef EXV_ENABLE_BMFF
+    Exiv2::enableBMFF(true);
+#endif
+
 #ifdef EXV_UNICODE_PATH
     glong ws_size = 0;
     gunichar2* const ws = g_utf8_to_utf16(fname.c_str(), -1, nullptr, &ws_size, nullptr);
